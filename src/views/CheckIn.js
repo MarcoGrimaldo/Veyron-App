@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react'
 import ReactNativeBiometrics from 'react-native-biometrics'
+//import * as LocalAuthentication from 'expo-local-authentication';
 
 import {
   Button,
@@ -33,6 +34,22 @@ const CheckIn = () => {
   
   
     const biometricAuth = async () => {
+
+      //FOR EXPO !!!
+      /*console.log("Click");
+    LocalAuthentication.authenticateAsync({promptMessage: 'Confirm fingerprint'}).then((resultObject) => {
+      const { success } = resultObject
+   
+      if (success) {
+        alert("Nice! You've cheked in correctly")
+      } else {
+        console.log('user cancelled biometric prompt')
+      }
+    })
+    .catch(() => {
+      console.log('biometrics failed')
+    })
+    }*/
   
       ReactNativeBiometrics.simplePrompt({promptMessage: 'Confirm fingerprint'})
     .then((resultObject) => {
